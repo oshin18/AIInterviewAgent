@@ -3,7 +3,7 @@ import streamlit as st
 from semantic_kernel.contents.chat_message_content import ChatMessageContent
 from utils.helpers import extract_text
 from configs.kernel import kernel
-from configs.skills import resume_function, jd_function, question_function, answer_function
+from configs.skills import resume_function, jd_function, question_function, feedback_function, answer_function
 from utils.helpers import extract_text, extract_final_answer_from_kernel_result
 
 # Define the async function to process resume, JD, generate questions, and evaluate answers
@@ -35,10 +35,16 @@ async def process_interview(resume_file, jd_file):
 # Evaluate the candidate's answer to a question
 async def evaluate_answer(question, user_answer, context):
     input_data = f"Question: {question}\nAnswer: {user_answer}\n\nContext: {context}"
-    feedback_sk_response = await kernel.invoke(answer_function, input_str=input_data)
-    # st.write(feedback_sk_response)
+    feedback_sk_response = await kernel.invoke(feedback_function, input_str=input_data)
     feedback = extract_final_answer_from_kernel_result(feedback_sk_response.value[0])
     return feedback
+
+# Generator Sample Answer
+async def generate_sample_answer(question, user_answer, context, feedback):
+    input_data = f"Question: {question}\nAnswer: {user_answer}\n\nContext: {context}\n\nFeedback: {feedback}"
+    answer_sk_response = await kernel.invoke(answer_function, input_str=input_data)
+    sample_answer = extract_final_answer_from_kernel_result(answer_sk_response.value[0])
+    return sample_answer
 
 # Sample usage: Asynchronously run the mock interview process
 def run_streamlit():
@@ -67,9 +73,14 @@ def run_streamlit():
             # Example answer evaluation (you can replace it with user input)
             user_answer = st.text_input("Sample Answer for Evaluation", "")
             if user_answer:
-                feedback = asyncio.run(evaluate_answer(question, user_answer, f"{resume_summary}\n{jd_summary}"))
-                st.subheader("Answer Evaluation Feedback")
-                st.write(feedback)
+                with st.spinner('Processing Response...'):
+                    feedback = asyncio.run(evaluate_answer(question, user_answer, f"{resume_summary}\n{jd_summary}"))
+                    st.subheader("Answer Evaluation Feedback")
+                    st.write(feedback)
+
+                    sample_answer = asyncio.run(generate_sample_answer(question, user_answer, f"{resume_summary}\n{jd_summary}", feedback))
+                    st.subheader("Sample Answer")
+                    st.write(sample_answer)
     else:
         st.info("Please upload both a resume and a job description.")
 
