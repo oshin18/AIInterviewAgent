@@ -1,6 +1,3 @@
-Here is the complete content in a single markdown file:
-
-```markdown
 # 🧠 AI Interview Agent
 
 **AI Interview Agent** is a smart, modular assistant designed to help job seekers prepare for interviews with personalized mock sessions based on their **resume** and the **job description** of their target role.
