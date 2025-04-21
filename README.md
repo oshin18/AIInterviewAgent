@@ -1,3 +1,6 @@
+Here is the complete content in a single markdown file:
+
+```markdown
 # 🧠 AI Interview Agent
 
 **AI Interview Agent** is a smart, modular assistant designed to help job seekers prepare for interviews with personalized mock sessions based on their **resume** and the **job description** of their target role.
@@ -45,17 +48,6 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
 
 ---
 
-## 🚀 Getting Started
-
-Clone the repo and follow the [Setup Guide](#) to deploy locally or on the cloud.
-
-```bash
-git clone https://github.com/oshin18/AIInterviewAgent.git
-cd ai-interview-agent
-```
-
----
-
 ## 📉 Architecture Overview
 
 ```plaintext
@@ -98,14 +90,67 @@ ai-interview-agent/
 │   ├── question_generator/   # Dynamic question generation skill
 │   └── answer_evaluator/     # Answer evaluation and feedback
 │
-├── utils/
-│   └── kernel_setup.py       # Semantic Kernel setup helper
+├── utils/                    # Semantic Kernel setup helper
 │
-├── prompts/                  # Skill prompt templates
+├── sample-docs/              # Example resume and job description files
 │
 ├── .env                      # Environment variables (e.g., OpenAI key)
 ├── requirements.txt          # Python dependencies
-└── README.md                 # Project documentation
+└── README.md                 # You're here!
+```
+
+---
+
+## 🚀 Getting Started
+
+Clone the repo and follow the [Setup Guide](#setup-guide) to deploy locally or on the cloud.
+
+```bash
+git clone https://github.com/oshin18/AIInterviewAgent.git
+cd ai-interview-agent
+```
+
+---
+
+## ⚙️ Setup Guide
+
+### 🔧 Prerequisites
+
+- Python 3.9+
+- Azure OpenAI Service (with GPT-4o or GPT-4 deployed)
+- Get your Azure credentials from the [Azure Portal](https://portal.azure.com/):
+  - `AZURE_OPENAI_APIKEY`
+  - `AZURE_OPENAI_ENDPOINT`
+  - `AZURE_OPENAI_DEPLOYMENT`
+
+### 🛠️ Installation
+
+```bash
+# Clone the repository
+$ git clone https://github.com/your-username/ai-interview-agent.git
+$ cd ai-interview-agent
+
+# (Optional) Create and activate a virtual environment
+$ python -m venv venv
+$ source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install Python dependencies
+$ pip install -r requirements.txt
+
+# Set up environment variables
+# Copy the example .env file and update it with your credentials
+$ cp .env.example .env
+
+# Open the .env file and add your Azure OpenAI API credentials
+$ nano .env  # or use your preferred text editor
+
+# Inside the .env file, add the following:
+# AZURE_OPENAI_APIKEY=your-api-key
+# AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+# AZURE_OPENAI_DEPLOYMENT=gpt-4  # or your deployment name
+
+# Run the Streamlit application
+$ streamlit run app.py
 ```
 
 ---
@@ -115,4 +160,4 @@ ai-interview-agent/
 - Voice-based interview simulation  
 - Analytics dashboard for progress tracking  
 - Integration with ATS platforms
-
+```
