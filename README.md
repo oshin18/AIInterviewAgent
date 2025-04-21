@@ -1,6 +1,6 @@
-# 🧠 AI Interview Agent
+# 🧠 Interview Ignitor (AI Interview Agent)
 
-**AI Interview Agent** is a smart, modular assistant designed to help job seekers prepare for interviews with personalized mock sessions based on their **resume** and the **job description** of their target role.
+**Interview Ignitor** is a smart, modular assistant designed to help job seekers prepare for interviews with personalized cover letters and mock sessions based on their **resume** and the **job description** of their target role. The Interview bot evaluates your answer and provides feedback with the sample answer to learn from.
 
 Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candidate’s profile, matches it with job requirements, generates tailored interview questions, evaluates responses, and provides actionable feedback — all in one streamlined tool.
 
@@ -14,6 +14,9 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
 - **Job Description Analyzer**  
   Extracts required skills, responsibilities, and key expectations from job postings.
 
+- **Cover Letter Generator**  
+  Creates cover letter tailored to the candidate's experience and job requirements.
+
 - **Question Generator**  
   Creates interview questions tailored to the candidate's experience and job requirements.
 
@@ -22,6 +25,9 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
 
 - **Feedback Provider**  
   Offers constructive, context-aware feedback to help candidates improve their answers.
+
+- **Sample Answer Generator**  
+  Provides sample answer to help candidate learn.
 
 - **Fully Modular**  
   Each component is built as a Semantic Kernel plugin, making it easy to extend, swap, or enhance.
@@ -62,8 +68,10 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
      |   Semantic Kernel Skills (Plugins)   |
      |   - ResumeAnalyzerSkill              |
      |   - JDAnalyzerSkill                  |
+     |   - CoverLetterGeneratorSkill        |
      |   - QuestionGeneratorSkill           |
      |   - AnswerEvaluatorSkill             |
+     |   - SampleAnswerGeneratorSkill       |
      +-----------------+--------------------+
                        |
                        v
@@ -77,27 +85,33 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
 ## 📂 Code Layout
 
 ```plaintext
-ai-interview-agent/
+AIInterviewAgent/
 │
-├── app.py                    # Main Streamlit application
+├── Homepage.py                       # Main Streamlit application (Homepage)
 │
 ├── skills/
-│   ├── resume_analyzer/      # Resume summarization skill
-│   ├── jd_analyzer/          # Job description analysis skill
-│   ├── question_generator/   # Dynamic question generation skill
-│   └── answer_evaluator/     # Answer evaluation and feedback
+│   ├── resume_analyzer/              # Resume summarization skill
+│   ├── jd_analyzer/                  # Job description analysis skill
+│   ├── cover_letter_generator        # Cover letter generation skill
+│   ├── question_generator/           # Dynamic question generation skill
+│   ├── answer_evaluator/             # Answer evaluation and feedback
+│   └── sample_answer_generator/      # Sample answer generation skill
 │
-├── utils/                    # Helpers for file processing and response processing
+├── utils/                            # Helpers for file processing and response processing
 │
-├── configs/                  # Configuration files
-│   ├── kernel.py             # Kernel configurations
-│   └── skills.py             # Multiple skills configurations
+├── configs/                          # Configuration files
+│   ├── kernel.py                     # Kernel configurations
+│   └── skills.py                     # Multiple skills configurations
 │   
-├── sample-docs/              # Example resume and job description files
+├── pages/                            # Steemlit Pages for sidebar
+│   ├── 1_Cover_Letter_Generator.py                    
+│   └── 2_Mock_Interview_Bot
+│   
+├── sample-docs/                      # Example resume and job description files
 │
-├── .env                      # Environment variables (e.g., OpenAI key)
-├── requirements.txt          # Python dependencies
-└── README.md                 # You're here!
+├── .env.example                      # Sample Environment variables (e.g., OpenAI key)
+├── requirements.txt                  # Python dependencies
+└── README.md                         # You're here!
 ```
 
 ---
@@ -151,7 +165,7 @@ $ nano .env  # or use your preferred text editor
 # AZURE_OPENAI_DEPLOYMENT=gpt-4  # or your deployment name
 
 # Run the Streamlit application
-$ streamlit run app.py
+$ streamlit run Homepage.py
 ```
 
 ---

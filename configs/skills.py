@@ -10,3 +10,4 @@ jd_function = create_function_from_template(os.path.join(skills_dir, "jd_analyze
 question_function = create_function_from_template(os.path.join(skills_dir, "question_generator", "GenerateQuestions.skprompt.txt"), "GenerateQuestions")
 feedback_function = create_function_from_template(os.path.join(skills_dir, "answer_evaluator", "EvaluateAnswer.skprompt.txt"), "EvaluateAnswer")
 answer_function = create_function_from_template(os.path.join(skills_dir, "answer_generator", "AnswerGenerator.skprompt.txt"), "AnswerGenerator")
+cover_letter_function = create_function_from_template(os.path.join(skills_dir, "cover_letter_generator", "CoverLetterGenerator.skprompt.txt"), "CoverLetterGenerator")
