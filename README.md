@@ -87,8 +87,12 @@ ai-interview-agent/
 │   ├── question_generator/   # Dynamic question generation skill
 │   └── answer_evaluator/     # Answer evaluation and feedback
 │
-├── utils/                    # Semantic Kernel setup helper
+├── utils/                    # Helpers for file processing and response processing
 │
+├── configs/                  # Configuration files
+│   ├── kernel.py             # Kernel configurations
+│   └── skills.py             # Multiple skills configurations
+│   
 ├── sample-docs/              # Example resume and job description files
 │
 ├── .env                      # Environment variables (e.g., OpenAI key)
