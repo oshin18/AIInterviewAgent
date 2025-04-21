@@ -100,11 +100,11 @@ ai-interview-agent/
 
 ## 🚀 Getting Started
 
-Clone the repo and follow the [Setup Guide](#setup-guide) to deploy locally or on the cloud.
+Clone the repo and follow the [Setup Guide](#%EF%B8%8F-setup-guide) to deploy locally or on the cloud.
 
 ```bash
 git clone https://github.com/oshin18/AIInterviewAgent.git
-cd ai-interview-agent
+cd AIInterviewAgent
 ```
 
 ---
@@ -124,8 +124,8 @@ cd ai-interview-agent
 
 ```bash
 # Clone the repository
-$ git clone https://github.com/your-username/ai-interview-agent.git
-$ cd ai-interview-agent
+$ git clone https://github.com/oshin18/AIInterviewAgent.git
+$ cd AIInterviewAgent
 
 # (Optional) Create and activate a virtual environment
 $ python -m venv venv
