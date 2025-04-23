@@ -1,7 +1,7 @@
 import asyncio
 import streamlit as st
-from utils.helpers import extract_text, extract_final_answer_from_kernel_result
-from configs.agents import resume_agent, jd_agent
+from utils.helpers import extract_text
+from services.agents import generate_resume_summary, extract_resume_skills, generate_jd_summary
 
 st.set_page_config(page_title="Interview Ignite", layout="centered")
 
@@ -27,24 +27,28 @@ async def process_resume_and_jd(resume_file, jd_file):
         st.error("Failed to extract text from files.")
         return None, None
     
-    async for response in resume_agent.invoke(resume=resume_text):
-        resume_summary = extract_final_answer_from_kernel_result(response.message)
+    resume_summary = await generate_resume_summary(resume_text)
 
-    async for response in jd_agent.invoke(jd=jd_text):
-        jd_summary = extract_final_answer_from_kernel_result(response.message)
+    jd_summary = await generate_jd_summary(jd_text)
 
-    return resume_summary, jd_summary
+    resume_skills = await extract_resume_skills(resume_summary)
+
+    return resume_summary, jd_summary, resume_skills
 
 if resume_file and jd_file:
     with st.spinner("Analyzing documents..."):
-        resume_summary, jd_summary = asyncio.run(process_resume_and_jd(resume_file, jd_file))
+        resume_summary, jd_summary, resume_skills = asyncio.run(process_resume_and_jd(resume_file, jd_file))
         st.session_state["resume_summary"] = resume_summary
         st.session_state["jd_summary"] = jd_summary
+        st.session_state["resume_skills"] = resume_skills
 
     st.success("✅ Resume and JD processed successfully!")
 
     st.markdown("### 📄 Resume Summary")
     st.write(st.session_state["resume_summary"])
+
+    st.markdown("### 📄 Resume Skills")
+    st.write(st.session_state["resume_skills"])
 
     st.markdown("### 🧾 Job Description Summary")
     st.write(st.session_state["jd_summary"])
