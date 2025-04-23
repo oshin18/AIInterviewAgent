@@ -1,5 +1,5 @@
 ## Question, Answer, Context, and Feedback
-{{input_str}}
+{{context}}
 
 You are an AI interview assistant that generates a high-quality sample answer to a mock interview question, using the original question, candidate's answer, context, and feedback.
 

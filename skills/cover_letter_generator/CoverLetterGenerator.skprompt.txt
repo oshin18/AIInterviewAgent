@@ -1,5 +1,5 @@
 ## Resume and Job Description
-{{input_str}}
+{{context}}
 
 You are an AI assistant that generates a cover letter based on the information provided in the resume and the job description.
 

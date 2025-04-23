@@ -1,7 +1,6 @@
 import asyncio
 import streamlit as st
-from configs.kernel import kernel
-from configs.skills import cover_letter_function
+from configs.agents import cover_letter_agent
 from utils.helpers import extract_final_answer_from_kernel_result
 
 st.set_page_config(page_title="Cover Letter Generator")
@@ -20,8 +19,9 @@ if "cover_letter" not in st.session_state:
 
 async def generate_cover_letter():
     context = f"Resume Summary:\n{resume_summary}\n\nJob Description Summary:\n{jd_summary}"
-    result = await kernel.invoke(cover_letter_function, input_str=context)
-    return extract_final_answer_from_kernel_result(result.value[0])
+    async for response in cover_letter_agent.invoke(context=context):
+        cover_letter = extract_final_answer_from_kernel_result(response.message)
+    return cover_letter
 
 if st.button("Generate Cover Letter"):
     with st.spinner("Generating your personalized cover letter..."):

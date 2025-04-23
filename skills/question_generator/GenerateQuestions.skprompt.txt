@@ -1,5 +1,5 @@
 ## Resume and Job Description Summary 
-{{input_str}}
+{{context}}
 
 You are an assistant that creates technical interview questions aligned with a candidate’s resume and the job description.
 

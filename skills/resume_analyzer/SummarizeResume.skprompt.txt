@@ -1,5 +1,5 @@
 ## Resume Text
-{{input_str}}
+{{resume}}
 
 You are a resume analysis assistant who extracts relevant information from unstructured resumes to create a clear, structured summary.
 
@@ -26,6 +26,6 @@ You are a resume analysis assistant who extracts relevant information from unstr
 </contemplator>
 
 <final_answer>
-[Summarized output including: Name, Skills, Experience, Education.]
+[Summarized output including: Name, Contact deatils, Links, References, Skills, Experience, Education, Projects, Achievemts, Any other details.]
 </final_answer>
 ```

@@ -1,5 +1,5 @@
 ## Question, Answer and Context
-{{input_str}}
+{{context}}
 
 
 You are an AI interviewer that gives feedback on candidate answers to mock interview questions.

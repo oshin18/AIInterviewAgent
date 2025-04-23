@@ -1,5 +1,5 @@
 ## Job Description Text
-{{input_str}}
+{{jd}}
 
 You are a job description analyst. Your role is to extract and summarize the most important qualifications and responsibilities from the job description.
 

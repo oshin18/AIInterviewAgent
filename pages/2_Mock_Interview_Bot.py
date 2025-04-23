@@ -1,7 +1,6 @@
 import asyncio
 import streamlit as st
-from configs.kernel import kernel
-from configs.skills import question_function, feedback_function, answer_function
+from configs.agents import question_agent, feedback_agent, answer_agent
 from utils.helpers import extract_final_answer_from_kernel_result
 
 st.set_page_config(page_title="Mock Interview Bot")
@@ -24,20 +23,23 @@ if "interview_step" not in st.session_state:
 
 async def generate_question():
     context = f"Resume Summary:\n{resume_summary}\n\nJob Description Summary:\n{jd_summary}"
-    result = await kernel.invoke(question_function, input_str=context)
-    return extract_final_answer_from_kernel_result(result.value[0])
+    async for response in question_agent.invoke(context=context):
+        question = extract_final_answer_from_kernel_result(response.message)
+    return question
 
 async def evaluate_answer(question, answer):
     context = f"Resume Summary:\n{resume_summary}\n\nJD Summary:\n{jd_summary}"
     input_str = f"Question: {question}\nAnswer: {answer}\n\nContext: {context}"
-    result = await kernel.invoke(feedback_function, input_str=input_str)
-    return extract_final_answer_from_kernel_result(result.value[0])
+    async for response in feedback_agent.invoke(context=input_str):
+        feedback = extract_final_answer_from_kernel_result(response.message)
+    return feedback
 
 async def generate_sample_answer(question, answer, feedback):
     context = f"Resume Summary:\n{resume_summary}\n\nJD Summary:\n{jd_summary}"
     input_str = f"Question: {question}\nAnswer: {answer}\nContext: {context}\nFeedback: {feedback}"
-    result = await kernel.invoke(answer_function, input_str=input_str)
-    return extract_final_answer_from_kernel_result(result.value[0])
+    async for response in answer_agent.invoke(context=input_str):
+        sample_answer = extract_final_answer_from_kernel_result(response.message)
+    return sample_answer
 
 # Ask question
 if st.session_state["last_question"] is None:
@@ -75,7 +77,7 @@ if not st.session_state["answer_submitted"]:
         st.session_state["sample"] = sample
         st.session_state["answer_submitted"] = True
 
-        st.rerun()  # Rerun to update UI and disable input
+        st.rerun()  
 else:
     st.markdown("**Your Answer:**")
     st.markdown(st.session_state["user_input"])

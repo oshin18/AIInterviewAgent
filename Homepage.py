@@ -1,8 +1,7 @@
 import asyncio
 import streamlit as st
 from utils.helpers import extract_text, extract_final_answer_from_kernel_result
-from configs.kernel import kernel
-from configs.skills import resume_function, jd_function
+from configs.agents import resume_agent, jd_agent
 
 st.set_page_config(page_title="Interview Ignite", layout="centered")
 
@@ -17,18 +16,23 @@ if "resume_summary" not in st.session_state:
 if "jd_summary" not in st.session_state:
     st.session_state["jd_summary"] = ""
 
+async def run_agent(agent, input_variables):
+    async for response in agent.i(input_variables):
+        return response.output  # return only the first response
+
 async def process_resume_and_jd(resume_file, jd_file):
     resume_text = extract_text(resume_file)
     jd_text = extract_text(jd_file)
     if not resume_text or not jd_text:
         st.error("Failed to extract text from files.")
         return None, None
+    
+    async for response in resume_agent.invoke(resume=resume_text):
+        resume_summary = extract_final_answer_from_kernel_result(response.message)
 
-    resume_result = await kernel.invoke(resume_function, input_str=resume_text)
-    jd_result = await kernel.invoke(jd_function, input_str=jd_text)
+    async for response in jd_agent.invoke(jd=jd_text):
+        jd_summary = extract_final_answer_from_kernel_result(response.message)
 
-    resume_summary = extract_final_answer_from_kernel_result(resume_result.value[0])
-    jd_summary = extract_final_answer_from_kernel_result(jd_result.value[0])
     return resume_summary, jd_summary
 
 if resume_file and jd_file:
@@ -45,6 +49,6 @@ if resume_file and jd_file:
     st.markdown("### 🧾 Job Description Summary")
     st.write(st.session_state["jd_summary"])
 
-    st.info("Now click **Mock Interview Bot** in the sidebar to begin your interactive Q&A session.")
+    st.info("Now click **Cover Letter Generator** or **Mock Interview Bot** in the sidebar to begin with the magic.")
 else:
     st.info("Please upload both your resume and job description to begin.")
