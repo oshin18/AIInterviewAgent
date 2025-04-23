@@ -1,0 +1,31 @@
+John Doe
+Email: john.doe@example.com
+Phone: (123) 456-7890
+LinkedIn: linkedin.com/in/johndoe
+Location: San Francisco, CA
+Professional Summary:
+Software engineer with 5+ years of experience in full-stack development. Passionate about building
+scalable web applications and working across the full stack. Skilled in collaborating with
+cross-functional teams and delivering high-quality products.
+Technical Skills:
+- Programming Languages: Python, JavaScript, Java
+- Frameworks: React, Node.js, Django, Spring Boot
+- Databases: MySQL, MongoDB, PostgreSQL
+- Tools: Git, Docker, Kubernetes, AWS, Azure
+Work Experience:
+Senior Software Engineer
+Tech Solutions Inc., San Francisco, CA
+Jan 2021 - Present
+- Led the development of a microservices-based application deployed on AWS.
+- Improved system performance by 30% through backend optimizations.
+- Mentored 3 junior developers and led agile ceremonies.
+Software Engineer
+Web Innovators, San Jose, CA
+Jun 2018 - Dec 2020
+- Built and maintained full-stack web applications using Django and React.
+- Implemented CI/CD pipelines and automated deployment scripts.
+- Integrated third-party APIs to enhance application functionality.
+Education:
+Bachelor of Science in Computer Science
+University of California, Berkeley
+Graduated: 2018

@@ -1,0 +1,26 @@
+Job Title: Senior Software Engineer  
+Location: San Francisco, CA  
+Company: Innovative Tech Corp  
+
+About the Role:  
+We are looking for a Senior Software Engineer to join our agile team and contribute to the development of scalable web applications. The ideal candidate will have a passion for technology, experience in full-stack development, and strong problem-solving skills.
+
+Responsibilities:
+- Design, develop, and maintain scalable and high-performance applications.
+- Collaborate with cross-functional teams to define, design, and ship new features.
+- Lead architecture decisions and code reviews.
+- Mentor junior engineers and promote engineering best practices.
+- Deploy applications to cloud platforms such as AWS or Azure.
+
+Requirements:
+- 5+ years of experience in full-stack development.
+- Proficient in Python and JavaScript.
+- Experience with React, Node.js, and Django.
+- Solid understanding of relational and non-relational databases.
+- Familiarity with Docker, Kubernetes, and CI/CD pipelines.
+- Excellent communication and teamwork skills.
+- Bachelor’s degree in Computer Science or related field.
+
+Preferred:
+- Experience working in a microservices architecture.
+- Exposure to cloud security best practices.
