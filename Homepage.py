@@ -8,8 +8,8 @@ st.set_page_config(page_title="Interview Ignite", layout="centered")
 st.title("🔥 Interview Ignite")
 st.subheader("Your ultimate launchpad for crafting tailored cover letters and preparing for interviews that align perfectly with your dream job!")
 
-resume_file = st.file_uploader("Upload Resume", type=["pdf", "docx", "txt"])
-jd_file = st.file_uploader("Upload Job Description", type=["pdf", "docx", "txt"])
+resume_file = st.file_uploader("Upload Resume", type=["pdf", "txt"])
+jd_file = st.file_uploader("Upload Job Description", type=["pdf", "txt"])
 
 if "resume_summary" not in st.session_state:
     st.session_state["resume_summary"] = ""

@@ -29,30 +29,9 @@ def extract_final_answer_from_kernel_result(result: ChatMessageContent) -> str:
         if match:
             return match.group(1).strip()
         else:
+            cleaned = cleaned.replace('<final_answer>', '')
             return cleaned
 
     except Exception as e:
         return f"Error extracting final answer: {str(e)}"
-
-def extract_skills_from_resume_summary(resume_summary: str) -> list:
-    """
-    Extracts the Skills section from a Semantic Kernel-formatted resume summary.
-
-    Args:
-        resume_summary (str): The full output from the resume analyzer skill, including <final_answer>.
-
-    Returns:
-        List of skills found under the "Skills" section.
-    """
-
-    # Extract the Skills line (assumes 'Skills:' is present)
-    skills_match = re.search(r"Skills\s*:\s*(.+)", resume_summary, re.IGNORECASE)
-    if not skills_match:
-        return []
-
-    skills_text = skills_match.group(1)
-
-    # Split and clean up skills
-    skills = [skill.strip() for skill in re.split(r",|;|\n", skills_text) if skill.strip()]
-    return skills
 
