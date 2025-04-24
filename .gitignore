@@ -1,0 +1,49 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+venv/
+.env/
+env/
+.env
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Python distributions
+*.whl
+
+# IDE / editor specific
+.vscode/
+.idea/
+*.swp
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Test / coverage reports
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+
+# Pytest cache
+.pytest_cache/
+
+# mypy type checking
+.mypy_cache/
+
+# pipenv
+Pipfile.lock
+
+# Python language server
+.pylint.d/
+
+# Other configurations
+.DS_Store
+Thumbs.db
