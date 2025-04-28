@@ -3,3 +3,4 @@ semantic-kernel
 openai
 docx2txt
 PyPDF2
+re
