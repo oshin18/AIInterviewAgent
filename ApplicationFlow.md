@@ -9,7 +9,7 @@ This document outlines the end-to-end application flow for the **Interview Ignit
 
 ### 1. 🏠 Homepage – Upload Resume and Job Description
 - The user lands on the homepage.
-- User uploads their **Resume (PDF/Docx)** and **Job Description (PDF/Docx)** using a drag-and-drop or file picker interface.
+- User uploads their **Resume (PDF/Docx/Txt)** and **Job Description (PDF/Docx/Txt)** using a drag-and-drop or file picker interface.
 - Files are submitted to the backend for processing.
 
 ![HomePage](docs/ApplicationFlow/1_Homepage.png)

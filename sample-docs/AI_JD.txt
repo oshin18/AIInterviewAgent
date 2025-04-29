@@ -1,0 +1,51 @@
+
+**Senior AI Engineer - Microsoft**  
+**Location:** Redmond, WA (Hybrid)  
+**Job Type:** Full-Time  
+**Experience Level:** Senior  
+**Department:** AI & Research
+
+
+### About Microsoft
+
+Microsoft's mission is to empower every person and every organization on the planet to achieve more. We are committed to fostering a culture of inclusion, growth mindset, and innovation.
+
+
+### Role Overview
+
+We are seeking a passionate and experienced Senior AI Engineer to join our dynamic team. In this role, you will design, develop, and deploy advanced AI solutions that enhance user experiences across Microsoft's products and services.
+
+
+### Responsibilities
+
+- Design and implement scalable AI models and algorithms to solve complex problems.  
+- Collaborate with cross-functional teams to integrate AI capabilities into products.  
+- Lead the end-to-end machine learning lifecycle, including data preprocessing, model training, evaluation, and deployment.  
+- Stay abreast of the latest advancements in AI and machine learning to inform project direction.  
+- Mentor junior engineers and contribute to a culture of continuous learning.
+
+
+### Qualifications (Required)
+
+- Bachelor's or Master's degree in Computer Science, Engineering, or a related field.  
+- 5+ years of experience in AI/ML development.  
+- Proficiency in programming languages such as Python, C++, or Java.  
+- Experience with machine learning frameworks like TensorFlow or PyTorch.  
+- Strong understanding of AI model development, optimization, and deployment.
+
+
+### Qualifications (Preferred)
+
+- Experience with cloud platforms (e.g., Azure, AWS, GCP).  
+- Familiarity with MLOps practices and tools.  
+- Experience in deploying AI solutions at scale.  
+- Strong communication and collaboration skills.
+
+
+### Benefits
+
+- Industry-leading healthcare coverage.  
+- Generous time-off policies.  
+- Opportunities for professional development and continuous learning.  
+- Employee discounts on Microsoft products and services.  
+- Inclusive and diverse work environment.

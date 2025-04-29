@@ -7,7 +7,7 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
 ---
 
 ## Demonstration 
-![Demo Video](docs/ApplicationDemo.mp4)
+![Demo Video](docs/Interview_Ignitor_demo.mp4)
 
 ---
 
@@ -133,7 +133,8 @@ AIInterviewAgent/
 │   └── 2_Mock_Interview_Bot
 │ 
 ├── docs/                             # Documents 
-│   ├── ApplicationDemo.mp4           # Application Demo 
+│   ├── ApplicationFlow/              # Application Flow Screenshots 
+│   ├── Interview_Ignitor_demo.mp4    # Application Demo 
 │   ├── ProcessFlow.png               # Application Process Flow
 │   └── Architecture.png              # Application Architecture diagram
 │ 
