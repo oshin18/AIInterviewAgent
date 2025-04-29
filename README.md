@@ -7,7 +7,7 @@ Powered by **Azure OpenAI** and **Semantic Kernel**, this app analyzes a candida
 ---
 
 ## Demonstration 
-![Demo Video](https://youtu.be/ZcjfaqMfdz0)
+[Demo Video](https://youtu.be/ZcjfaqMfdz0)
 
 ---
 
